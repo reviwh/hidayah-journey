@@ -1,0 +1,14 @@
+.content-wrapper {
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+  margin: 0 4rem 0 3rem;
+  padding: 3rem;
+  gap: 2rem;
+  background: var(--scrim);
+  border-radius: 3rem;
+}
+
+.content-wrapper > h1 {
+  color: var(--primary);
+}
