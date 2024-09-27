@@ -1,7 +1,8 @@
 <script lang="ts">
+import Icon from "./Icon.vue";
 import TextField from "./TextField.vue";
 export default {
-  components: { TextField },
+  components: { TextField, Icon },
   name: "Navbar",
 };
 </script>
@@ -22,10 +23,10 @@ export default {
       />
       <div class="btn-group">
         <button class="btn btn-icon">
-          <span class="material-symbols-rounded"> notifications </span>
+          <icon name="notifications" />
         </button>
         <button class="btn btn-icon">
-          <span class="material-symbols-rounded"> settings </span>
+          <icon name="settings" />
         </button>
       </div>
     </div>

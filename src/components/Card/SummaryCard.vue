@@ -96,7 +96,7 @@ export default {
 }
 
 .icon > svg {
-  color: --var(--on-primary);
+  color: var(--on-primary);
   width: 1.25rem;
   height: 1.25rem;
 }

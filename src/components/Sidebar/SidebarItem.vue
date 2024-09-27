@@ -1,7 +1,7 @@
 <script lang="ts">
-import { computed, defineComponent, ref } from "vue";
-
-export default defineComponent({
+import Icon from "../Icon.vue";
+export default {
+  components: { Icon },
   props: {
     icon: {
       type: String,
@@ -20,35 +20,19 @@ export default defineComponent({
       default: false,
     },
   },
-
-  mounted() {
-    this.iconIsLoad = true;
-  },
-
-  setup() {
-    const iconIsLoad = ref(false);
-    const iconClass = computed(() => {
-      return iconIsLoad.value ? "material-symbols-rounded" : "icon-on-load";
-    });
-
-    return {
-      iconIsLoad,
-      iconClass,
-    };
-  },
-});
+};
 </script>
 
 <template>
   <div v-if="isSelected" class="container-selected">
     <div class="backgroud-selected"></div>
-    <span :class="iconClass">{{ icon }}</span>
+    <icon :name="icon" size="24" class="icon" />
     <p class="text-title-md">{{ title }}</p>
   </div>
   <a v-else :href="href">
     <div class="container">
       <div class="backgroud"></div>
-      <span :class="iconClass"> {{ icon }} </span>
+      <icon :name="icon" size="24" class="icon" />
       <p class="text-title-md">{{ title }}</p>
     </div>
   </a>
@@ -60,6 +44,7 @@ export default defineComponent({
   position: relative;
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: start;
   gap: 0.5rem;
   padding: 0.75rem;
@@ -92,21 +77,19 @@ export default defineComponent({
   left: 0;
 }
 
-.container-selected > p,
-.container-selected > span {
+.container-selected {
   color: var(--primary);
 }
-.container > p,
-.container > span {
+.container {
   color: var(--on-surface-variant);
 }
 
-.container:hover > p,
-.container:hover > span {
+.container:hover {
   color: var(--on-primary-container);
 }
 
-.icon-on-load {
-  font-size: 0;
+svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 </style>

@@ -9,7 +9,7 @@
     ]"
     ref="textField"
   >
-    <icon :name="icon" color="" size="32" v-if="icon" />
+    <icon :name="icon" v-if="icon" />
     <input
       :name="id"
       :type="type"

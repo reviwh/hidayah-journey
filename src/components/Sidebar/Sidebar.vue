@@ -1,7 +1,7 @@
 <script lang="ts">
 import { useRoute } from "vue-router";
 import SidebarItem from "../Sidebar/SidebarItem.vue";
-import { watch, watchEffect } from "vue";
+import { watchEffect } from "vue";
 
 export default {
   props: {
@@ -17,19 +17,19 @@ export default {
     return {
       menus: [
         {
-          icon: "space_dashboard",
+          icon: "space-dashboard",
           title: "Dashboard",
           href: "/",
           isSelected: false,
         },
         {
-          icon: "support_agent",
+          icon: "support-agent",
           title: "Marketing",
           href: "/marketing",
           isSelected: false,
         },
         {
-          icon: "date_range",
+          icon: "date-range",
           title: "Jadwal Keberangkatan",
           href: "/jadwal-keberangkatan",
           isSelected: false,
@@ -41,7 +41,7 @@ export default {
           isSelected: false,
         },
         {
-          icon: "travel_luggage_and_bags",
+          icon: "travel-luggage-and-bags",
           title: "Keberangkatan",
           href: "/keberangkatan",
           isSelected: false,
@@ -53,13 +53,13 @@ export default {
           isSelected: false,
         },
         {
-          icon: "toll",
+          icon: "receive-money",
           title: "Pemasukan",
           href: "/pemasukan",
           isSelected: false,
         },
         {
-          icon: "send_money",
+          icon: "send-money",
           title: "Pengeluaran",
           href: "/pengeluaran",
           isSelected: false,
