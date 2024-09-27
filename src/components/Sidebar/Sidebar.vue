@@ -1,11 +1,13 @@
 <script lang="ts">
+import { useRoute } from "vue-router";
 import SidebarItem from "../Sidebar/SidebarItem.vue";
+import { watch, watchEffect } from "vue";
 
 export default {
   props: {
-    index: {
-      type: Number,
-      default: 0,
+    path: {
+      type: String,
+      default: "/",
     },
   },
   components: {
@@ -29,7 +31,7 @@ export default {
         {
           icon: "date_range",
           title: "Jadwal Keberangkatan",
-          href: "/",
+          href: "/jadwal-keberangkatan",
           isSelected: false,
         },
         {
@@ -41,32 +43,41 @@ export default {
         {
           icon: "travel_luggage_and_bags",
           title: "Keberangkatan",
-          href: "/",
+          href: "/keberangkatan",
           isSelected: false,
         },
         {
           icon: "package",
           title: "Paket",
-          href: "/",
+          href: "/paket",
           isSelected: false,
         },
         {
           icon: "toll",
           title: "Pemasukan",
-          href: "/",
+          href: "/pemasukan",
           isSelected: false,
         },
         {
           icon: "send_money",
           title: "Pengeluaran",
-          href: "/",
+          href: "/pengeluaran",
           isSelected: false,
         },
       ],
     };
   },
   mounted() {
-    this.menus[this.index].isSelected = true;
+    const route = useRoute();
+
+    watchEffect(() => {
+      this.menus.forEach((menu) => {
+        menu.isSelected = false;
+        if (menu.href === route.path) {
+          menu.isSelected = true;
+        }
+      });
+    });
   },
 };
 </script>

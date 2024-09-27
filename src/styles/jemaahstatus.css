@@ -1,0 +1,63 @@
+#status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.pre-departure {
+  width: 1rem;
+  height: 1rem;
+  background: var(--outline);
+  border: 1px solid var(--on-surface);
+  box-shadow: inset 1px -1px 0.5rem 0 var(--on-surface);
+  filter: drop-shadow(0 0 0.5rem var(--outline));
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(0 0 0.5rem var(--outline));
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.departure {
+  width: 1rem;
+  height: 1rem;
+  background: var(--warning);
+  border: 1px solid var(--on-warning-container);
+  box-shadow: inset 1px -1px 0.5rem 0 var(--on-surface);
+  filter: drop-shadow(0 0 0.5rem var(--warning));
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(0 0 0.5rem var(--warning));
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.post-departure {
+  width: 1rem;
+  height: 1rem;
+  background: var(--success);
+  border: 1px solid var(--on-success-container);
+  box-shadow: inset 1px -1px 0.5rem 0 var(--on-surface);
+  filter: drop-shadow(0 0 0.5rem var(--success));
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(0 0 0.5rem var(--success));
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.canceled {
+  width: 1rem;
+  height: 1rem;
+  background: var(--error);
+  border: 1px solid var(--on-error-container);
+  box-shadow: inset 1px -1px 0.5rem 0 var(--on-surface);
+  filter: drop-shadow(0 0 0.5rem var(--error));
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(0 0 0.5rem var(--error));
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

@@ -1,5 +1,5 @@
 <script lang="ts">
-import "@/assets/content.css";
+import "@/styles/content.css";
 import Sidebar from "../components/Sidebar/Sidebar.vue";
 import SummaryCard from "../components/Card/SummaryCard.vue";
 import MarketingCard from "../components/Card/MarketingCard.vue";
@@ -14,7 +14,6 @@ export default {
   },
   data() {
     return {
-      currentIndex: 1,
       marketings: [
         {
           image:
@@ -63,31 +62,28 @@ export default {
 </script>
 
 <template>
-  <main>
-    <sidebar :index="currentIndex" />
-    <div class="content-wrapper glass">
-      <div class="header">
-        <h1 class="text-display-sm">Marketing</h1>
-        <text-field
-          id="marketingSearch"
-          class="text-field-sm rounded"
-          placeholder="Cari marketing..."
-          icon="search"
-        />
-        <button type="button" class="btn btn-sm btn-primary">
-          <span>Tambahkan</span>
-        </button>
-      </div>
-      <div class="content">
-        <marketing-card
-          v-for="(marketing, i) in marketings"
-          :key="i"
-          :image="marketing.image"
-          :title="marketing.name"
-        />
-      </div>
+  <div class="content-wrapper glass">
+    <div class="header">
+      <h1 class="text-display-sm">Marketing</h1>
+      <text-field
+        id="marketingSearch"
+        class="text-field-sm rounded"
+        placeholder="Cari marketing..."
+        icon="search"
+      />
+      <button type="button" class="btn btn-sm btn-primary">
+        <span>Tambahkan</span>
+      </button>
     </div>
-  </main>
+    <div class="content">
+      <marketing-card
+        v-for="(marketing, i) in marketings"
+        :key="i"
+        :image="marketing.image"
+        :title="marketing.name"
+      />
+    </div>
+  </div>
 </template>
 
 <style scoped>

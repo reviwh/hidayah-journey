@@ -1,5 +1,5 @@
 <script lang="ts">
-import "@/assets/content.css";
+import "@/styles/content.css";
 import Sidebar from "../components/Sidebar/Sidebar.vue";
 import SummaryCard from "../components/Card/SummaryCard.vue";
 
@@ -32,31 +32,28 @@ export default {
 </script>
 
 <template>
-  <main>
-    <sidebar :index="currentIndex" />
-    <div class="content-wrapper glass">
-      <h1 class="text-display-sm">Dashboard</h1>
-      <div class="summary-cards">
-        <summary-card
-          v-for="(summary, i) in summaries"
-          :key="i"
-          :title="summary.title"
-          :icon="summary.icon"
-          :value="summary.value"
-          :diffrence="summary.diffrence"
-        />
+  <div class="content-wrapper glass">
+    <h1 class="text-display-sm">Dashboard</h1>
+    <div class="summary-cards">
+      <summary-card
+        v-for="(summary, i) in summaries"
+        :key="i"
+        :title="summary.title"
+        :icon="summary.icon"
+        :value="summary.value"
+        :diffrence="summary.diffrence"
+      />
+    </div>
+    <div class="bottom-content">
+      <div class="left-content">
+        <h2 class="text-title-lg">Perkembangan Transaksi</h2>
+        <h2 class="text-title-lg">Marketing</h2>
       </div>
-      <div class="bottom-content">
-        <div class="left-content">
-          <h2 class="text-title-lg">Perkembangan Transaksi</h2>
-          <h2 class="text-title-lg">Marketing</h2>
-        </div>
-        <div class="right-content">
-          <h2 class="text-title-lg">Jadwal Keberangkatan</h2>
-        </div>
+      <div class="right-content">
+        <h2 class="text-title-lg">Jadwal Keberangkatan</h2>
       </div>
     </div>
-  </main>
+  </div>
 </template>
 
 <style scoped>

@@ -1,60 +1,69 @@
 <script lang="ts">
-import "@/assets/content.css";
+import "@/styles/content.css";
 import Sidebar from "../components/Sidebar/Sidebar.vue";
-import SummaryCard from "../components/Card/SummaryCard.vue";
-import MarketingCard from "../components/Card/MarketingCard.vue";
 import TextField from "../components/TextField.vue";
+import JemaahCard from "../components/Card/JemaahCard.vue";
+import JemaahStatus from "../components/JemaahStatus.vue";
+import Pagination from "../components/Pagination/Pagination.vue";
 
 export default {
   components: {
     Sidebar,
-    SummaryCard,
-    MarketingCard,
     TextField,
+    JemaahCard,
+    JemaahStatus,
+    Pagination,
   },
   data() {
     return {
-      currentIndex: 3,
       jemaah: [
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "pre-departure",
         },
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "departure",
         },
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "post-departure",
         },
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "canceled",
         },
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "canceled",
         },
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "post-departure",
         },
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "departure",
         },
         {
           image:
             "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
           name: "Adam Malik",
+          status: "pre-departure",
         },
       ],
     };
@@ -63,8 +72,6 @@ export default {
 </script>
 
 <template>
-  <main>
-    <sidebar :index="currentIndex" />
     <div class="content-wrapper glass">
       <div class="header">
         <h1 class="text-display-sm">Jemaah</h1>
@@ -78,16 +85,18 @@ export default {
           <span>Tambahkan</span>
         </button>
       </div>
+      <jemaah-status />
       <div class="content">
-        <marketing-card
-          v-for="(marketing, i) in jemaah"
+        <jemaah-card
+          v-for="(item, i) in jemaah"
           :key="i"
-          :image="marketing.image"
-          :title="marketing.name"
+          :image="item.image"
+          :title="item.name"
+          :status="item.status"
         />
       </div>
+      <pagination />
     </div>
-  </main>
 </template>
 
 <style scoped>

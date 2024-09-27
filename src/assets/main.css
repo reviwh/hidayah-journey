@@ -297,15 +297,15 @@ input {
   outline: solid 2px var(--error);
 }
 
-.text-field > span {
+.text-field > svg {
   font-size: 2rem;
   color: var(--on-surface);
 }
 
-.text-field.disabled > span {
+.text-field.disabled > svg {
   color: var(--outline);
 }
-.text-field.error > span {
+.text-field.error > svg {
   color: var(--error);
 }
 
