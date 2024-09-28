@@ -72,31 +72,31 @@ export default {
 </script>
 
 <template>
-    <div class="content-wrapper glass">
-      <div class="header">
-        <h1 class="text-display-sm">Jemaah</h1>
-        <text-field
-          id="jemaahSearch"
-          class="text-field-sm rounded"
-          placeholder="Cari jemaah..."
-          icon="search"
-        />
-        <button type="button" class="btn btn-sm btn-primary">
-          <span>Tambahkan</span>
-        </button>
-      </div>
-      <jemaah-status />
-      <div class="content">
-        <jemaah-card
-          v-for="(item, i) in jemaah"
-          :key="i"
-          :image="item.image"
-          :title="item.name"
-          :status="item.status"
-        />
-      </div>
-      <pagination />
+  <div class="content-wrapper glass">
+    <div class="header">
+      <h1 class="text-display-sm">Jemaah</h1>
+      <text-field
+        id="jemaahSearch"
+        class="text-field-sm rounded"
+        placeholder="Cari jemaah..."
+        icon="search"
+      />
+      <button type="button" class="btn btn-sm btn-primary">
+        <span>Tambahkan</span>
+      </button>
     </div>
+    <jemaah-status />
+    <div class="content">
+      <jemaah-card
+        v-for="(item, i) in jemaah"
+        :key="i"
+        :image="item.image"
+        :title="item.name"
+        :status="item.status"
+      />
+    </div>
+    <pagination :limit="8" :lastPage="50" :total="400" />
+  </div>
 </template>
 
 <style scoped>

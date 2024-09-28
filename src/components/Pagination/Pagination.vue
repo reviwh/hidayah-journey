@@ -97,7 +97,7 @@ export default {
     };
   },
   mounted() {
-    this.first = this.selectedPage * this.limit - this.limit;
+    this.first = this.selectedPage * this.limit - this.limit + 1;
     this.last =
       this.selectedPage * this.limit < this.total
         ? this.selectedPage * this.limit
