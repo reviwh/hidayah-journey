@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import "@/styles/jemaahstatus.css";
+
 export default {
   name: "MarketingCard",
   props: {
@@ -40,6 +41,7 @@ export default {
   overflow: hidden;
   color: var(--on-surface);
   transition: all 300ms ease-in-out;
+  cursor: pointer;
 }
 
 .image {
