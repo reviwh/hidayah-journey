@@ -5,6 +5,8 @@ import TextField from "../components/TextField.vue";
 import JemaahCard from "../components/Card/JemaahCard.vue";
 import JemaahStatus from "../components/JemaahStatus.vue";
 import Pagination from "../components/Pagination/Pagination.vue";
+import { useRoute } from "vue-router";
+import { watchEffect } from "vue";
 
 export default {
   components: {
@@ -16,6 +18,12 @@ export default {
   },
   data() {
     return {
+      page: {
+        selectedPage: Number(this.$route.query.page) || 1,
+        lastPage: 50,
+        limit: 8,
+        total: 400,
+      },
       jemaah: [
         {
           image:
@@ -68,6 +76,12 @@ export default {
       ],
     };
   },
+  mounted() {
+    const route = useRoute();
+    watchEffect(() => {
+      this.page.selectedPage = Number(route.query.page) || 1;
+    });
+  },
 };
 </script>
 
@@ -95,7 +109,12 @@ export default {
         :status="item.status"
       />
     </div>
-    <pagination :limit="8" :lastPage="50" :total="400" />
+    <pagination
+      :selectedPage="page.selectedPage"
+      :limit="page.limit"
+      :lastPage="page.lastPage"
+      :total="page.total"
+    />
   </div>
 </template>
 

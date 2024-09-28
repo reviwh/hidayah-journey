@@ -2,13 +2,16 @@
   <div class="pagination">
     <div class="page-controller">
       <template v-if="lastPage > 5">
-        <div :class="{ disabled: selectedPage === 1 }">
+        <div :class="{ disabled: selectedPage === 1 }" @click="goToPage(1)">
           <icon name="double-arrow-backward" />
         </div>
-        <div :class="{ disabled: selectedPage === 1 }">
+        <div
+          :class="{ disabled: selectedPage === 1 }"
+          @click="goToPage(selectedPage - 1)"
+        >
           <icon name="arrow-back" />
         </div>
-        <!-- Case 1: First 5 pages -->
+
         <template v-if="selectedPage <= 3">
           <div
             v-for="i in 5"
@@ -19,7 +22,6 @@
           </div>
         </template>
 
-        <!-- Case 2: Last 5 pages -->
         <template v-else-if="selectedPage > lastPage - 3">
           <div
             v-for="i in Array.from(
@@ -27,13 +29,12 @@
               (_, index) => lastPage - 4 + index
             )"
             :key="i"
-            :class="{ selected: selectedPage === i }"
+            :class="[{ selected: selectedPage === i }, 'text-title-sm']"
           >
             {{ i }}
           </div>
         </template>
 
-        <!-- Case 3: Middle pages -->
         <template v-else>
           <div
             v-for="i in Array.from(
@@ -41,23 +42,33 @@
               (_, index) => selectedPage - 2 + index
             )"
             :key="i"
-            :class="{ selected: selectedPage === i }"
+            :class="[{ selected: selectedPage === i }, 'text-title-sm']"
+            @click="goToPage(i)"
           >
             {{ i }}
           </div>
         </template>
-        <div :class="{ disabled: selectedPage === lastPage }">
+
+        <div
+          :class="{ disabled: selectedPage === lastPage }"
+          @click="goToPage(selectedPage + 1)"
+        >
           <icon name="arrow-forward" />
         </div>
-        <div :class="{ disabled: selectedPage === lastPage }">
+        <div
+          :class="{ disabled: selectedPage === lastPage }"
+          @click="goToPage(lastPage)"
+        >
           <icon name="double-arrow-forward" />
         </div>
       </template>
+
       <template v-else>
         <div
           v-for="i in lastPage"
           :key="i"
           :class="[{ selected: selectedPage === i }, 'text-title-sm']"
+          @click="goToPage(i)"
         >
           {{ i }}
         </div>
@@ -90,18 +101,23 @@ export default {
       default: 0,
     },
   },
-  data() {
-    return {
-      first: 1,
-      last: 1,
-    };
+  methods: {
+    goToPage(page: number) {
+      return this.$router.push({
+        name: this.$route.name,
+        query: { ...this.$route.query, page: page },
+      });
+    },
   },
-  mounted() {
-    this.first = this.selectedPage * this.limit - this.limit + 1;
-    this.last =
-      this.selectedPage * this.limit < this.total
+  computed: {
+    first(): number {
+      return this.selectedPage * this.limit - this.limit + 1;
+    },
+    last(): number {
+      return this.selectedPage * this.limit < this.total
         ? this.selectedPage * this.limit
         : this.total;
+    },
   },
 };
 </script>
