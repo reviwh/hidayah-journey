@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import Icon from "./Icon.vue";
+import Icon from "./IconComponent.vue";
 export default {
   components: { Icon },
   name: "TextField",

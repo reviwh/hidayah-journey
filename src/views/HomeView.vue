@@ -1,11 +1,9 @@
 <script lang="ts">
 import "@/styles/content.css";
-import Sidebar from "../components/Sidebar/Sidebar.vue";
 import SummaryCard from "../components/Card/SummaryCard.vue";
 
 export default {
   components: {
-    Sidebar,
     SummaryCard,
   },
   data() {

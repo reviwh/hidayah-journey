@@ -1,16 +1,14 @@
 <script lang="ts">
 import "@/styles/content.css";
-import Sidebar from "../components/Sidebar/Sidebar.vue";
 import TextField from "../components/TextField.vue";
 import JemaahCard from "../components/Card/JemaahCard.vue";
 import JemaahStatus from "../components/JemaahStatus.vue";
-import Pagination from "../components/Pagination/Pagination.vue";
+import Pagination from "../components/Pagination/PaginationComponent.vue";
 import { useRoute } from "vue-router";
 import { watchEffect } from "vue";
 
 export default {
   components: {
-    Sidebar,
     TextField,
     JemaahCard,
     JemaahStatus,

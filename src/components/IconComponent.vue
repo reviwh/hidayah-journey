@@ -23,7 +23,7 @@ import NotificationIcon from "./Icons/NotificationIcon.vue";
 import SettingsIcon from "./Icons/SettingsIcon.vue";
 
 export default defineComponent({
-  name: "Icon",
+  name: "IconComponent",
   props: {
     name: {
       type: String,

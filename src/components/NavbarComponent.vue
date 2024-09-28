@@ -1,9 +1,9 @@
 <script lang="ts">
-import Icon from "./Icon.vue";
+import Icon from "./IconComponent.vue";
 import TextField from "./TextField.vue";
 export default {
   components: { TextField, Icon },
-  name: "Navbar",
+  name: "NavbarComponent",
 };
 </script>
 

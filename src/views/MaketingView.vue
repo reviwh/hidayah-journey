@@ -1,14 +1,10 @@
 <script lang="ts">
 import "@/styles/content.css";
-import Sidebar from "../components/Sidebar/Sidebar.vue";
-import SummaryCard from "../components/Card/SummaryCard.vue";
 import MarketingCard from "../components/Card/MarketingCard.vue";
 import TextField from "../components/TextField.vue";
 
 export default {
   components: {
-    Sidebar,
-    SummaryCard,
     MarketingCard,
     TextField,
   },

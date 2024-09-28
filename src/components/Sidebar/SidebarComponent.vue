@@ -1,9 +1,10 @@
 <script lang="ts">
 import { useRoute } from "vue-router";
-import SidebarItem from "../Sidebar/SidebarItem.vue";
+import SidebarItem from "./SidebarItem.vue";
 import { watchEffect } from "vue";
 
 export default {
+  name: "SidebarComponent",
   props: {
     path: {
       type: String,
