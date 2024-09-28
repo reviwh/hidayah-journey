@@ -12,7 +12,13 @@ export default {
     return {
       currentIndex: 0,
       summaries: [
-        { title: "Jemaah", icon: "group", value: 1234, diffrence: 123 },
+        {
+          title: "Jemaah",
+          icon: "group",
+          value: 1234,
+          diffrence: 123,
+          destination: "/jemaah",
+        },
         {
           title: "Pemasukan",
           icon: "receive-money",
@@ -42,6 +48,7 @@ export default {
         :icon="summary.icon"
         :value="summary.value"
         :diffrence="summary.diffrence"
+        :destination="summary.destination"
       />
     </div>
     <div class="bottom-content">

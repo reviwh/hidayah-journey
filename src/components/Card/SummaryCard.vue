@@ -23,22 +23,26 @@ export default {
       type: Number,
       default: 0,
     },
+    destination: {
+      type: String,
+      default: "/",
+    },
   },
 };
 </script>
 
 <template>
-  <div class="container glass">
+  <a class="container glass" :href="destination">
     <div class="left-content">
       <div class="icon">
         <icon :name="icon" />
       </div>
-      <div class="text-title-lg">
+      <div class="text-title-lg value">
         {{ value }}
-        <span v-if="diffrence > 0" class="text-body-md increase">{{
+        <span v-if="diffrence > 0" class="text-body-sm increase">{{
           diffrence
         }}</span>
-        <span v-else-if="diffrence < 0" class="text-body-md decrease">{{
+        <span v-else-if="diffrence < 0" class="text-body-sm decrease">{{
           diffrence
         }}</span>
       </div>
@@ -50,7 +54,7 @@ export default {
       <icon v-if="diffrence < 0" name="down" />
       <icon v-if="diffrence > 0" name="up" />
     </div>
-  </div>
+  </a>
 </template>
 
 <style scoped>
@@ -62,25 +66,36 @@ export default {
   justify-content: space-between;
   padding: 1.5rem;
   background: var(--surface);
+  color: var(---on-surface);
   border-radius: 1.5rem;
+}
+
+.container:hover {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
 }
 .left-content {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  color: var(---on-surface);
+}
+
+.left-content .value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .left-content > h2 {
   color: var(--on-surface-variant);
 }
 
-.text-body-md.increase {
+.text-body-sm.increase {
   color: var(--success);
 }
 
-.text-body-md.decrease {
+.text-body-sm.decrease {
   color: var(--error);
 }
 
