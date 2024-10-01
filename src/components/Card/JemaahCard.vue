@@ -1,6 +1,17 @@
 <template>
   <div class="card glass">
     <div id="status" :class="status"></div>
+    <icon-component name="more-vert" class="more-icon" @click="toggleOpened" />
+    <div v-if="isOpened" class="more-actions text-body-md">
+      <a class="edit" href="/jemaah/edit/1">
+        <icon-component name="edit" />
+        <span>Edit</span>
+      </a>
+      <div class="delete">
+        <icon-component name="delete" />
+        <span>Hapus</span>
+      </div>
+    </div>
     <div class="image" :style="{ backgroundImage: 'url(' + image + ')' }"></div>
     <div class="title">
       <h2 class="text-title-md">{{ title }}</h2>
@@ -10,8 +21,10 @@
 
 <script lang="ts">
 import "@/styles/jemaahstatus.css";
+import IconComponent from "../IconComponent.vue";
 
 export default {
+  components: { IconComponent },
   name: "MarketingCard",
   props: {
     image: {
@@ -25,6 +38,16 @@ export default {
     status: {
       type: String,
       required: true,
+    },
+  },
+  data() {
+    return {
+      isOpened: false,
+    };
+  },
+  methods: {
+    toggleOpened() {
+      this.isOpened = !this.isOpened;
     },
   },
 };
@@ -63,5 +86,58 @@ export default {
 .card:hover {
   background: var(--primary-container);
   color: var(--on-primary-container);
+}
+
+.more-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.5rem;
+  aspect-ratio: 1;
+  color: var(--surface);
+}
+
+.more-actions {
+  width: 128px;
+  height: fit-content;
+  position: absolute;
+  top: 2rem;
+  right: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.more-actions .edit,
+.more-actions .delete {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 1rem;
+}
+.more-actions .edit {
+  background: var(--surface);
+  color: var(--on-surface);
+}
+
+.more-actions .edit:hover {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+}
+
+.more-actions .delete {
+  background: var(--surface);
+  color: var(--error);
+}
+.more-actions .delete:hover {
+  background: var(--error-container);
+  color: var(--on-error-container);
+}
+
+.more-actions svg {
+  width: 20px;
+  height: 20px;
 }
 </style>

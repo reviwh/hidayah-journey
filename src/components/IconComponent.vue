@@ -21,6 +21,10 @@ import TravelLuggageAndBagsIcon from "./Icons/TravelLuggageAndBagsIcon.vue";
 import DoubleArrowForwardIcon from "./Icons/DoubleArrowForwardIcon.vue";
 import NotificationIcon from "./Icons/NotificationIcon.vue";
 import SettingsIcon from "./Icons/SettingsIcon.vue";
+import AddIcon from "./Icons/AddIcon.vue";
+import DeleteIcon from "./Icons/DeleteIcon.vue";
+import EditIcon from "./Icons/EditIcon.vue";
+import MoreVertIcon from "./Icons/MoreVertIcon.vue";
 
 export default defineComponent({
   name: "IconComponent",
@@ -75,6 +79,14 @@ export default defineComponent({
           return NotificationIcon;
         case "settings":
           return SettingsIcon;
+        case "add":
+          return AddIcon;
+        case "delete":
+          return DeleteIcon;
+        case "edit":
+          return EditIcon;
+        case "more-vert":
+          return MoreVertIcon;
         default:
           return null;
       }
