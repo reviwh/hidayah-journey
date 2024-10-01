@@ -34,7 +34,7 @@
       />
       <img :src="image" alt="" />
       <h2 class="text-headline-lg">{{ title }}</h2>
-      <h3 class="text-title-lg">1234567890123456</h3>
+      <h3 class="text-title-lg">{{ nId }}</h3>
     </div>
   </div>
   <delete-modal
@@ -56,6 +56,10 @@ export default {
   components: { IconComponent, DeleteModal },
   name: "MarketingCard",
   props: {
+    nId: {
+      type: String,
+      required: true,
+    },
     image: {
       type: String,
       required: true,
