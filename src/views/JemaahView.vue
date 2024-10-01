@@ -6,6 +6,7 @@ import JemaahStatus from "../components/JemaahStatus.vue";
 import Pagination from "../components/Pagination/PaginationComponent.vue";
 import { useRoute } from "vue-router";
 import { watchEffect } from "vue";
+import IconComponent from "../components/IconComponent.vue";
 
 export default {
   components: {
@@ -13,6 +14,7 @@ export default {
     JemaahCard,
     JemaahStatus,
     Pagination,
+    IconComponent,
   },
   data() {
     return {
@@ -94,6 +96,7 @@ export default {
         icon="search"
       />
       <button type="button" class="btn btn-sm btn-primary">
+        <icon-component name="add" />
         <span>Tambahkan</span>
       </button>
     </div>
@@ -117,13 +120,6 @@ export default {
 </template>
 
 <style scoped>
-.summary-cards {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
 .header {
   display: flex;
   flex-wrap: wrap;

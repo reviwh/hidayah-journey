@@ -25,6 +25,7 @@ import AddIcon from "./Icons/AddIcon.vue";
 import DeleteIcon from "./Icons/DeleteIcon.vue";
 import EditIcon from "./Icons/EditIcon.vue";
 import MoreVertIcon from "./Icons/MoreVertIcon.vue";
+import CloseIcon from "./Icons/CloseIcon.vue";
 
 export default defineComponent({
   name: "IconComponent",
@@ -87,6 +88,8 @@ export default defineComponent({
           return EditIcon;
         case "more-vert":
           return MoreVertIcon;
+        case "close":
+          return CloseIcon;
         default:
           return null;
       }

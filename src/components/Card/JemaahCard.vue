@@ -1,13 +1,21 @@
 <template>
-  <div class="card glass">
+  <div class="card glass" @click="toggleJemaahModal">
     <div id="status" :class="status"></div>
-    <icon-component name="more-vert" class="more-icon" @click="toggleOpened" />
-    <div v-if="isOpened" class="more-actions text-body-md">
+    <icon-component
+      :name="isActionButtonOpened ? 'close' : 'more-vert'"
+      class="more-icon"
+      @click.stop="toggleActionButton"
+    />
+    <div
+      v-if="isActionButtonOpened"
+      class="more-actions text-body-md"
+      @click.stop
+    >
       <a class="edit" href="/jemaah/edit/1">
         <icon-component name="edit" />
         <span>Edit</span>
       </a>
-      <div class="delete">
+      <div class="delete" @click="toggleDeleteModal">
         <icon-component name="delete" />
         <span>Hapus</span>
       </div>
@@ -17,14 +25,35 @@
       <h2 class="text-title-md">{{ title }}</h2>
     </div>
   </div>
+  <div class="modal" v-if="isJemaahModalShowed" @click="toggleJemaahModal">
+    <div class="modal-content glass" @click.stop>
+      <icon-component
+        name="close"
+        class="btn-close"
+        @click="toggleJemaahModal"
+      />
+      <img :src="image" alt="" />
+      <h2 class="text-headline-lg">{{ title }}</h2>
+      <h3 class="text-title-lg">1234567890123456</h3>
+    </div>
+  </div>
+  <delete-modal
+    v-if="isDeleteModalShowed"
+    :toggleDeleteModal="toggleDeleteModal"
+    title="Hapus Jemaah"
+    :subtitle="`Anda akan menghapus ${title} dari daftar jemaah. Apa Anda yakin?`"
+    :onSubmit="() => {}"
+  />
 </template>
 
 <script lang="ts">
 import "@/styles/jemaahstatus.css";
+import "@/styles/modal.css";
 import IconComponent from "../IconComponent.vue";
+import DeleteModal from "../Modal/DeleteModal.vue";
 
 export default {
-  components: { IconComponent },
+  components: { IconComponent, DeleteModal },
   name: "MarketingCard",
   props: {
     image: {
@@ -42,12 +71,20 @@ export default {
   },
   data() {
     return {
-      isOpened: false,
+      isActionButtonOpened: false,
+      isJemaahModalShowed: false,
+      isDeleteModalShowed: false,
     };
   },
   methods: {
-    toggleOpened() {
-      this.isOpened = !this.isOpened;
+    toggleActionButton() {
+      this.isActionButtonOpened = !this.isActionButtonOpened;
+    },
+    toggleJemaahModal() {
+      this.isJemaahModalShowed = !this.isJemaahModalShowed;
+    },
+    toggleDeleteModal() {
+      this.isDeleteModalShowed = !this.isDeleteModalShowed;
     },
   },
 };
@@ -106,7 +143,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 0;
-  border-radius: 0.5rem;
+  border-radius: 0.625rem;
   overflow: hidden;
 }
 
@@ -114,8 +151,8 @@ export default {
 .more-actions .delete {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 1rem;
+  gap: 0.625rem;
+  padding: 0.5rem 0.625rem;
 }
 .more-actions .edit {
   background: var(--surface);
