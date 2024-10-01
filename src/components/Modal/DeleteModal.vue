@@ -28,12 +28,13 @@
 <script lang="ts">
 import "@/styles/modal.css";
 import IconComponent from "../IconComponent.vue";
+import type { PropType } from "vue";
 export default {
   components: { IconComponent },
   name: "DeleteModal",
   props: {
     toggleDeleteModal: {
-      type: Function,
+      type: Function as PropType<() => void>,
       required: true,
     },
     title: {
@@ -45,7 +46,7 @@ export default {
       required: true,
     },
     onSubmit: {
-      type: Function,
+      type: Function as PropType<() => void>,
       required: true,
     },
   },
@@ -55,6 +56,7 @@ export default {
 <style scoped>
 .modal-content {
   width: 500px;
+  height: fit-content;
   gap: 2.75rem;
   padding: 3rem;
 }

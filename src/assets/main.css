@@ -50,6 +50,8 @@
 
 body {
   background: var(--surface-dim);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a,
