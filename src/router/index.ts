@@ -17,7 +17,17 @@ const router = createRouter({
     {
       path: "/jemaah",
       name: "jemaah",
-      component: () => import("../views/JemaahView.vue"),
+      component: () => import("../views/Jemaah/JemaahView.vue"),
+    },
+    {
+      path: "/jemaah/add",
+      name: "addJemaah",
+      component: () => import("../views/Jemaah/AddJemaahView.vue"),
+    },
+    {
+      path: "/jemaah/edit/:id",
+      name: "editJemaah",
+      component: () => import("../views/Jemaah/EditJemaahView.vue"),
     },
   ],
 });

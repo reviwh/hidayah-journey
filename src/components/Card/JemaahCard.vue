@@ -11,7 +11,7 @@
       class="more-actions text-body-md"
       @click.stop
     >
-      <a class="edit" href="/jemaah/edit/1">
+      <a class="edit" :href="`/jemaah/edit/${nId}`">
         <icon-component name="edit" />
         <span>Edit</span>
       </a>

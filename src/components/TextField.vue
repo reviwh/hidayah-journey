@@ -1,6 +1,6 @@
 <template>
   <div
-    :id="id"
+    :id="`${id}-field`"
     :class="[
       'text-field',
       className,
@@ -11,11 +11,13 @@
   >
     <icon :name="icon" v-if="icon" />
     <input
+      :id="id"
       :name="id"
       :type="type"
       :value="value"
       :placeholder="placeholder"
       :disabled="disabled"
+      autocomplete="off"
       ref="inputField"
     />
   </div>
@@ -61,7 +63,7 @@ export default {
     },
   },
   mounted() {
-    const textField = document.getElementById(this.id);
+    const textField = document.getElementById(`${this.id}-field`);
     if (textField) {
       textField.addEventListener("click", () => {
         const input = textField.querySelector("input");

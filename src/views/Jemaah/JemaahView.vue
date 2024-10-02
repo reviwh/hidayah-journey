@@ -1,12 +1,12 @@
 <script lang="ts">
 import "@/styles/content.css";
-import TextField from "../components/TextField.vue";
-import JemaahCard from "../components/Card/JemaahCard.vue";
-import JemaahStatus from "../components/JemaahStatus.vue";
-import Pagination from "../components/Pagination/PaginationComponent.vue";
+import TextField from "../../components/TextField.vue";
+import JemaahCard from "../../components/Card/JemaahCard.vue";
+import JemaahStatus from "../../components/JemaahStatus.vue";
+import Pagination from "../../components/Pagination/PaginationComponent.vue";
 import { useRoute } from "vue-router";
 import { watchEffect } from "vue";
-import IconComponent from "../components/IconComponent.vue";
+import IconComponent from "../../components/IconComponent.vue";
 
 export default {
   components: {
@@ -103,10 +103,10 @@ export default {
         placeholder="Cari jemaah..."
         icon="search"
       />
-      <button type="button" class="btn btn-sm btn-primary">
+      <a class="btn btn-sm btn-primary" href="/jemaah/add">
         <icon-component name="add" />
         <span>Tambahkan</span>
-      </button>
+      </a>
     </div>
     <jemaah-status />
     <div class="content">

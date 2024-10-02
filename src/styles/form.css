@@ -1,0 +1,9 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group > label {
+  color: var(--on-surface);
+}
