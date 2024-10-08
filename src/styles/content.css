@@ -2,6 +2,7 @@
   display: flex;
   flex: 1 1 0%;
   flex-direction: column;
+  flex-wrap: wrap;
   margin: 0 4rem 0 3rem;
   padding: 3rem;
   gap: 2rem;
@@ -11,4 +12,23 @@
 
 .content-wrapper > h1 {
   color: var(--primary);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header > h1 {
+  color: var(--primary);
+  flex: 1 1 0;
+}
+
+.content {
+  display: grid;
+  flex: 1 1 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }

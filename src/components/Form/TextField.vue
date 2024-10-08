@@ -17,6 +17,9 @@
       :value="value"
       :placeholder="placeholder"
       :disabled="disabled"
+      :min="min"
+      :max="max"
+      :step="step"
       autocomplete="off"
       ref="inputField"
     />
@@ -24,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import Icon from "./IconComponent.vue";
+import Icon from "../IconComponent.vue";
 export default {
   components: { Icon },
   name: "TextField",
@@ -46,6 +49,18 @@ export default {
       default: "text",
     },
     value: {
+      type: String,
+      default: "",
+    },
+    min: {
+      type: String,
+      default: "",
+    },
+    max: {
+      type: String,
+      default: "",
+    },
+    step: {
       type: String,
       default: "",
     },

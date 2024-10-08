@@ -101,7 +101,6 @@ export default {
   min-height: 10rem;
   background: var(--surface);
   border-radius: 1.5rem;
-  aspect-ratio: 1.5;
   overflow: hidden;
   color: var(--on-surface);
   transition: all 300ms ease-in-out;

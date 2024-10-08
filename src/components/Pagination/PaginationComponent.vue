@@ -17,6 +17,7 @@
             v-for="i in 5"
             :key="i"
             :class="[{ selected: selectedPage === i }, 'text-title-sm']"
+            @click="goToPage(i)"
           >
             {{ i }}
           </div>
@@ -30,6 +31,7 @@
             )"
             :key="i"
             :class="[{ selected: selectedPage === i }, 'text-title-sm']"
+            @click="goToPage(i)"
           >
             {{ i }}
           </div>

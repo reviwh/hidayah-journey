@@ -1,6 +1,6 @@
 <template>
   <div class="modal" @click="toggleDeleteModal">
-    <div class="modal-content glass" @click.stop>
+    <div class="modal-content glass" @click.stop :style="{ width: width }">
       <icon-component
         name="close"
         class="btn-close"
@@ -49,13 +49,16 @@ export default {
       type: Function as PropType<() => void>,
       required: true,
     },
+    width: {
+      type: String,
+      default: "500px",
+    },
   },
 };
 </script>
 
 <style scoped>
 .modal-content {
-  width: 500px;
   height: fit-content;
   gap: 2.75rem;
   padding: 3rem;

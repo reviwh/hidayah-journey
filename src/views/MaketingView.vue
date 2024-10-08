@@ -1,7 +1,7 @@
 <script lang="ts">
 import "@/styles/content.css";
 import MarketingCard from "../components/Card/MarketingCard.vue";
-import TextField from "../components/TextField.vue";
+import TextField from "../components/Form/TextField.vue";
 
 export default {
   components: {

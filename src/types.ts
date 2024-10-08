@@ -23,6 +23,9 @@ export interface DepartureSchedule {
 
 export interface Departure {
   id: number;
+  jemaah: Jemaah;
+  marketing: Marketing;
+  schedule: DepartureSchedule;
 }
 
 export interface Package {
@@ -32,7 +35,14 @@ export interface Package {
   price: number;
 }
 
-export interface Icome {
+export interface Income {
+  id: number;
+  description: string;
+  amount: number;
+  date: Date;
+}
+
+export interface Outcome {
   id: number;
   description: string;
   amount: number;

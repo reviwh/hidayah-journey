@@ -1,6 +1,6 @@
 <script lang="ts">
 import Icon from "./IconComponent.vue";
-import TextField from "./TextField.vue";
+import TextField from "./Form/TextField.vue";
 export default {
   components: { TextField, Icon },
   name: "NavbarComponent",
